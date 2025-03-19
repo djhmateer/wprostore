@@ -1,10 +1,7 @@
-import { ShoppingCart, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
-import ModeToggle from "./mode-toggle";
-
+import Menu from "./menu";
 const Header = () => {
   return (
     // tailwind is flex columns of width full.
@@ -31,28 +28,9 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* horizontal space between the cart and sign in elements */}
-        <div className="space-x-2">
-          {/* Mode toggle */}
-          <ModeToggle />
-
-          {/* Cart button */}
-          {/* chadcn cart button. This isn't a button with a click handler */}
-          <Button asChild variant="ghost">
-            <Link href="/cart">
-              {/* shopping cart icon */}
-              <ShoppingCart /> Cart
-            </Link>
-          </Button>
-
-          {/* Sign in button with default Primary background for a more visible text */}
-          {/* https://ui.shadcn.com/docs/components/button */}
-          <Button asChild>
-            <Link href="/sign-in">
-              <UserIcon /> Sign In
-            </Link>
-          </Button>
-        </div>
+        {/* Right hand side menu in its own component */}
+        <Menu />
+        
       </div>
     </header>
   );

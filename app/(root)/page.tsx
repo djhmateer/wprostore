@@ -1,18 +1,17 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Home"
-}
-
+  title: "Home",
+};
 
 const HomePage = () => {
-  return ( 
+  return (
     <div>
       <h1>Hello World</h1>
       {/* <Button>Click me</Button> */}
     </div>
   );
-}
- 
+};
+
 export default HomePage;
