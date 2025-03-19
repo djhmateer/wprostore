@@ -1,16 +1,11 @@
-import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-
-export const metadata: Metadata = {
-  title: "Home",
-};
+import sampleData from "@/db/sample-data";
+import ProductList from "@/components/shared/product/product-list";
 
 const HomePage = () => {
+  console.log(sampleData);
+
   return (
-    <div>
-      <h1>Hello World</h1>
-      {/* <Button>Click me</Button> */}
-    </div>
+      <ProductList data={sampleData.products} title="Newest Arrivals" limit={4} />
   );
 };
 
