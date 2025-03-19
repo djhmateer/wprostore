@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
+import ModeToggle from "./mode-toggle";
 
 const Header = () => {
   return (
@@ -30,9 +31,12 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Cart button */}
         {/* horizontal space between the cart and sign in elements */}
         <div className="space-x-2">
+          {/* Mode toggle */}
+          <ModeToggle />
+
+          {/* Cart button */}
           {/* chadcn cart button. This isn't a button with a click handler */}
           <Button asChild variant="ghost">
             <Link href="/cart">
