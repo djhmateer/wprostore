@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ProductPrice from "./product-price";
-const ProductCard = ({ product }: { product: any }) => {
+import { Product } from "@/types";
+
+const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Card className="w-full max-w-sm">
-        {/* card header is the image */}
+      {/* card header is the image */}
       <CardHeader className="p-0 items-center">
         <Link href={`/product/${product.slug}`}>
           <Image

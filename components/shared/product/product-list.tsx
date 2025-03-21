@@ -1,9 +1,18 @@
-import ProductCard from './product-card';
+import ProductCard from "./product-card";
+import { Product } from "@/types";
 
 // any is used because later we will create a product type (zod?)
 // title is optional so use a ?
 // limit is optional and a number
-const ProductList = ({ data, title, limit }: { data: any; title?: string; limit?: number }) => {
+const ProductList = ({
+  data,
+  title,
+  limit,
+}: {
+  data: Product[];
+  title?: string;
+  limit?: number;
+}) => {
   // if limit is provided, slice the data to the limit
   const limitedData = limit ? data.slice(0, limit) : data;
   return (
@@ -12,7 +21,7 @@ const ProductList = ({ data, title, limit }: { data: any; title?: string; limit?
       {data.length > 0 ? (
         // mobile - 1 column then 2,3,4 columns on larger screens
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {limitedData.map((product: any) => (
+          {limitedData.map((product: Product) => (
             // <div>{product.name}</div>
             // need a unique key for each product otherwise error
             <ProductCard key={product.slug} product={product} />
