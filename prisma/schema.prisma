@@ -26,7 +26,7 @@ model Product {
   // DM - I prefer to use Int and cents for prices
   price       Decimal  @default(0) @db.Decimal(12, 2)
   rating      Decimal  @default(0) @db.Decimal(3, 2)
-  runReviews  Int      @default(0)
+  numReviews  Int      @default(0)
   isFeatured  Boolean  @default(false)
   banner      String?
 
