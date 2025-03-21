@@ -2,6 +2,9 @@
 
 generator client {
   provider = "prisma-client-js"
+  // so can use the prisma adapter for neon
+  // which will allow websockets
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
