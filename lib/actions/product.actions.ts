@@ -11,7 +11,10 @@ export const getLatestProducts = async () => {
   const data = await prisma.product.findMany({
     take: LATEST_PRODUCTS_LIMIT,
     orderBy: {
-      createdAt: "desc",
+      // createdAt: "desc",
+      // numReviews: "desc",
+      // stock: "desc",
+      price: "desc",
     },
   });
   // convert prisma object to plain JS object
@@ -20,7 +23,22 @@ export const getLatestProducts = async () => {
 
 // Get single product by slug
 export const getProductBySlug = async (slug: string) => {
-  return await prisma.product.findFirst({
-    where: { slug: slug },
+  const startTime = performance.now();
+
+  // Enable query logging for this specific query
+  prisma.$queryRaw`SET log_statement = 'all'`;
+
+  console.log("getProductBySlug", slug);
+  const foo = await prisma.product.findFirst({
+    where: { slug: slug }
+
   });
+
+  const endTime = performance.now();
+
+  // am getting 13ms for this query - is this real?
+  console.log(`DB query took ${endTime - startTime}ms`);
+
+  // console.log("returned", foo);
+  return foo;
 };
