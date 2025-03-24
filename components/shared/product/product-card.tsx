@@ -8,7 +8,7 @@ import { Product } from "@/types";
 const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Card className="w-full max-w-sm">
-      {/* card header is the image */}
+      {/* card header is the image! */}
       <CardHeader className="p-0 items-center">
         <Link href={`/product/${product.slug}`}>
           <Image
