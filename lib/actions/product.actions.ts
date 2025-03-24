@@ -26,7 +26,7 @@ export const getProductBySlug = async (slug: string) => {
   const startTime = performance.now();
 
   // Enable query logging for this specific query
-  prisma.$queryRaw`SET log_statement = 'all'`;
+  await prisma.$queryRaw`SET log_statement = 'all'`;
 
   console.log("getProductBySlug", slug);
   const foo = await prisma.product.findFirst({
