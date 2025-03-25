@@ -19,7 +19,7 @@ const adapter = new PrismaNeon(pool);
 export const prisma = new PrismaClient({
   adapter,
   // nice to log the query and log output
-  log: ["query", "info", "warn", "error"],
+  // log: ["query", "info", "warn", "error"],
 }).$extends({
   result: {
     // this in not a good place for this code.
